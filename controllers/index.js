@@ -1,9 +1,9 @@
-const greatGirl = (req, res, next) => {
-    res.json('Nani')
+const bestFriend = (req, res, next) => {
+    res.json('Logan Huston')
 }
 
-const greatBoy = (req, res, next) => {
-    res.json('Guapo')
+const bestGirlFriend = (req, res, next) => {
+    res.json('Charlotte Walker')
 }
 
-module.exports = {greatGirl, greatBoy};
+module.exports = {bestFriend, bestGirlFriend};
