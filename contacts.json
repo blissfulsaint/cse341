@@ -1,0 +1,23 @@
+{
+    "contact": {
+        "firstName": "Brooke",
+        "lastName": "Lisonbee",
+        "email": "brookelisonbee@gmail.com",
+        "favoriteColor": "Blue",
+        "birthday": "11/30/04"
+    },
+    "contact2": {
+        "firstName": "Brittany",
+        "lastName": "Lisonbee",
+        "email": "bklisonbee@gmail.com",
+        "favoriteColor": "Pink",
+        "birthday": "11/30/04"
+    },
+    "contact3": {
+        "firstName": "Dale",
+        "lastName": "Lisonbee",
+        "email": "dlisonbee@yahoo.com",
+        "favoriteColor": "Blue",
+        "birthday": "11/28/04"
+    }
+}

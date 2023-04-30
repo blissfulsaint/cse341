@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 async function main() {
-    const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.jtoy9uh.mongodb.net/?retryWrites=true&w=majority`;
+    const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.jtoy9uh.mongodb.net/test`;
 
     const client = new MongoClient(uri);
 
