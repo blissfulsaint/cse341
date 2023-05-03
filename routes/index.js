@@ -6,4 +6,6 @@ routes.get('/', namesController.bestFriend);
 
 routes.get('/charlotte', namesController.bestGirlFriend);
 
+routes.use('/contacts', require('./contacts'))
+
 module.exports = routes;

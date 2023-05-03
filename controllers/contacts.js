@@ -1,7 +1,10 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
+mongodb.initDb();
+
 const getAll = async (req, res, next) => {
+  console.log("This is the get all function");
   const result = await mongodb.getDb().db().collection('contacts').find();
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
