@@ -15,7 +15,8 @@ const initDb = (callback) => {
       callback(null, _db);
     })
     .catch((err) => {
-      callback(err);
+      // callback(err);
+      console.log("There was an error connecting to the database")
     });
 };
 
