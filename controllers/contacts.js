@@ -1,4 +1,3 @@
-const { mongo } = require('mongoose');
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
@@ -12,12 +11,15 @@ const getAll = async (req, res, next) => {
       res.status(200).json(lists);
     });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(400).json({ message: err.message });
   }
 };
 
 const getSingle = async (req, res, next) => {
   try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid contact id to find a contact.')
+    }
     const userId = new ObjectId(req.params.id);
     const result = await mongodb
       .getDb()
@@ -29,7 +31,7 @@ const getSingle = async (req, res, next) => {
       res.status(200).json(lists[0]);
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json({ message: err });
   }
 };
 
@@ -55,8 +57,12 @@ const createContact = async (req, res, next) => {
 
 const updateContact = async (req, res, next) => {
   try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid contact id to update a contact.');
+    }
     const userId = new ObjectId(req.params.id);
   
+    // Use updateOne to update specific fields
     const contact = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -79,6 +85,9 @@ const updateContact = async (req, res, next) => {
 
 const deleteContact = async (req, res, next) => {
   try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid contact id to delete a contact.');
+    }
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDb().db().collection('contacts').deleteOne({_id: userId}, true);
     console.log(response);

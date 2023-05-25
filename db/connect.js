@@ -16,7 +16,6 @@ const initDb = (callback) => {
     })
     .catch((err) => {
       // callback(err);
-      console.log("There was an error connecting to the database")
     });
 };
 
@@ -29,5 +28,5 @@ const getDb = () => {
 
 module.exports = {
   initDb,
-  getDb,
+  getDb
 };
